@@ -1,7 +1,10 @@
 import React from "react";
 import Container from "./Container";
 import { Link } from "react-router-dom";
+import useCartStore from "../store/useCartStore";
+
 const Header = () => {
+  const {carts} = useCartStore();
   return (
     <header className=" px-5 py-5">
       <Container>
@@ -10,7 +13,7 @@ const Header = () => {
           <Link to={"/my-cart"} className=" border border-black px-5 py-2 relative">
             My Cart
             <span className=" absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 inline-block text-xs bg-red-500 text-white px-3 py-1">
-              1
+              {carts.length}
             </span>
           </Link>
         </div>
